@@ -1,19 +1,29 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import { getDetails } from '../../services/api-calls'
+import { Link } from 'react-router-dom'
 
 const StarshipDetails = () => {
   const [starshipDetails, setStarshipDetails] = useState({})
+  const location = useLocation()
 
   useEffect(() => {
-    // const fetchStarshipDetails = async () => {
-    //   const starshipData = await getStarshipDetails()
-    //   setStarshipDetails(starshipData.results)
-    // }
-    // fetchStarshipDetails()
-  }, [])
+    const fetchDetails = async () => {
+      const starshipDetails = await getDetails(location.state.starship.url)
+      setStarshipDetails(starshipDetails)
+    }
+    fetchDetails()
+  }, [location.state.starship.url])
 
   return ( 
     <>
-      <h3>heres some ship details</h3>
+    <div>
+      NAME: {starshipDetails.name}
+    </div>
+    <div>
+      MODEL: {starshipDetails.model}
+    </div>
+    <Link to='/'>RETURN</Link>
     </>
   );
 }
