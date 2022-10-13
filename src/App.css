@@ -38,7 +38,8 @@
 }
 
 .navbar {
-  background-color: blue;
+  background-color: cornflowerblue;
+  color: black;
   margin-top: 0;
 }
 
@@ -50,5 +51,37 @@
 }
 
 .card {
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  width: 250px;
+  height: 100px;
+  border-radius: 7px;
+}
+
+.ship-card  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  width: 70vw;
+  height: 100px;
+  border-radius: 7px;
+}
+
+.ship-card > div  {
+  margin: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: cornflowerblue;
+  align-self: flex-start;
+  margin-left: 15px;
 }
